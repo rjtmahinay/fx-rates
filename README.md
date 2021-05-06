@@ -17,7 +17,7 @@ java -jar fx-rates-1.0.jar
 
 ### Technology Stack
 * Spring Boot
-* Swaggger UI
+* Swagger UI
 * Java 11
 
 ## License
