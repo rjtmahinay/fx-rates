@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FxRatesController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fx-rates</a> &gt; <a href="index.source.html" class="el_package">com.rates.controller</a> &gt; <span class="el_source">FxRatesController.java</span></div><h1>FxRatesController.java</h1><pre class="source lang-java linenums">package com.rates.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.rates.dto.FxRatesRequestDTO;
+import com.rates.dto.FxRatesResponseDTO;
+import com.rates.service.FxRatesService;
+
+/**
+ * @author Tristan Mahinay
+ */
+@RestController
+<span class="fc" id="L18">public class FxRatesController {</span>
+
+	@Autowired
+	FxRatesService fxRatesService;
+
+	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, path = &quot;/convertAmount&quot;)
+	public ResponseEntity&lt;FxRatesResponseDTO&gt; convertAmount(@RequestBody FxRatesRequestDTO requestDTO) {
+
+<span class="fc" id="L26">		FxRatesResponseDTO responseDTO = fxRatesService.getConvertedAmount(requestDTO);</span>
+
+<span class="fc" id="L28">		return ResponseEntity.ok(responseDTO);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
